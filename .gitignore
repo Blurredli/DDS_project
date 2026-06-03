@@ -38,3 +38,4 @@ Thumbs.db
 # 内嵌仓库与工具配置
 -/
 .claude/
+wave.vcd
