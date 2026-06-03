@@ -9,24 +9,24 @@ vsim_stacktrace.vstf
 
 # 仿真输出
 sim/*.vcd
-sim/work/
-sim/transcript
+# sim/work/
+# sim/transcript
 sim/wave.vcd
 
 # Quartus 工程文件
-*.qpf
-*.qsf
-*.qws
-*.srf
-*.jdi
-*.pin
-*.summary
-*.done
-*.rpt
-*.smsg
-db/
-incremental_db/
-output_files/
+# *.qpf
+# *.qsf
+# *.qws
+# *.srf
+# *.jdi
+# *.pin
+# *.summary
+# *.done
+# *.rpt
+# *.smsg
+# db/
+# incremental_db/
+# output_files/
 
 # OS 临时文件
 *.swp
@@ -37,6 +37,8 @@ Thumbs.db
 
 # 内嵌仓库与工具配置
 -/
-.claude/
+# .claude/
 wave.vcd
 *.bak
+
+*.wlf

@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Jun 03 18:15:01 2026
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : DDS_Signal_Generator
+Top-level Entity Name : DDS_Signal_Generator
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 766 / 6,272 ( 12 % )
+    Total combinational functions : 685 / 6,272 ( 11 % )
+    Dedicated logic registers : 366 / 6,272 ( 6 % )
+Total registers : 366
+Total pins : 19 / 92 ( 21 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 24 / 30 ( 80 % )
+Total PLLs : 0 / 2 ( 0 % )

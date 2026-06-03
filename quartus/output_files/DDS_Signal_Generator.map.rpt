@@ -1,0 +1,853 @@
+Analysis & Synthesis report for DDS_Signal_Generator
+Wed Jun 03 18:14:56 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. Logic Cells Representing Combinational Loops
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Key_Control:key_ctrl_inst
+ 15. Parameter Settings for User Entity Instance: UART_Parse:uart_parse_inst
+ 16. Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult4
+ 17. Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult2
+ 18. Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult3
+ 19. Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult1
+ 20. Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult0
+ 21. lpm_mult Parameter Settings by Entity Instance
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jun 03 18:14:56 2026           ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                      ; DDS_Signal_Generator                            ;
+; Top-level Entity Name              ; DDS_Signal_Generator                            ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; 789                                             ;
+;     Total combinational functions  ; 685                                             ;
+;     Dedicated logic registers      ; 366                                             ;
+; Total registers                    ; 366                                             ;
+; Total pins                         ; 19                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 24                                              ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                  ;
++------------------------------------------------------------------+----------------------+----------------------+
+; Option                                                           ; Setting              ; Default Value        ;
++------------------------------------------------------------------+----------------------+----------------------+
+; Device                                                           ; EP4CE6E22C8          ;                      ;
+; Top-level entity name                                            ; DDS_Signal_Generator ; DDS_Signal_Generator ;
+; Family name                                                      ; Cyclone IV E         ; Cyclone V            ;
+; Use smart compilation                                            ; Off                  ; Off                  ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                   ; On                   ;
+; Enable compact report table                                      ; Off                  ; Off                  ;
+; Restructure Multiplexers                                         ; Auto                 ; Auto                 ;
+; Create Debugging Nodes for IP Cores                              ; Off                  ; Off                  ;
+; Preserve fewer node names                                        ; On                   ; On                   ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable               ; Enable               ;
+; Verilog Version                                                  ; Verilog_2001         ; Verilog_2001         ;
+; VHDL Version                                                     ; VHDL_1993            ; VHDL_1993            ;
+; State Machine Processing                                         ; Auto                 ; Auto                 ;
+; Safe State Machine                                               ; Off                  ; Off                  ;
+; Extract Verilog State Machines                                   ; On                   ; On                   ;
+; Extract VHDL State Machines                                      ; On                   ; On                   ;
+; Ignore Verilog initial constructs                                ; Off                  ; Off                  ;
+; Iteration limit for constant Verilog loops                       ; 5000                 ; 5000                 ;
+; Iteration limit for non-constant Verilog loops                   ; 250                  ; 250                  ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                   ; On                   ;
+; Infer RAMs from Raw Logic                                        ; On                   ; On                   ;
+; Parallel Synthesis                                               ; On                   ; On                   ;
+; DSP Block Balancing                                              ; Auto                 ; Auto                 ;
+; NOT Gate Push-Back                                               ; On                   ; On                   ;
+; Power-Up Don't Care                                              ; On                   ; On                   ;
+; Remove Redundant Logic Cells                                     ; Off                  ; Off                  ;
+; Remove Duplicate Registers                                       ; On                   ; On                   ;
+; Ignore CARRY Buffers                                             ; Off                  ; Off                  ;
+; Ignore CASCADE Buffers                                           ; Off                  ; Off                  ;
+; Ignore GLOBAL Buffers                                            ; Off                  ; Off                  ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                  ; Off                  ;
+; Ignore LCELL Buffers                                             ; Off                  ; Off                  ;
+; Ignore SOFT Buffers                                              ; On                   ; On                   ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                  ; Off                  ;
+; Optimization Technique                                           ; Balanced             ; Balanced             ;
+; Carry Chain Length                                               ; 70                   ; 70                   ;
+; Auto Carry Chains                                                ; On                   ; On                   ;
+; Auto Open-Drain Pins                                             ; On                   ; On                   ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                  ; Off                  ;
+; Auto ROM Replacement                                             ; On                   ; On                   ;
+; Auto RAM Replacement                                             ; On                   ; On                   ;
+; Auto DSP Block Replacement                                       ; On                   ; On                   ;
+; Auto Shift Register Replacement                                  ; Auto                 ; Auto                 ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                 ; Auto                 ;
+; Auto Clock Enable Replacement                                    ; On                   ; On                   ;
+; Strict RAM Replacement                                           ; Off                  ; Off                  ;
+; Allow Synchronous Control Signals                                ; On                   ; On                   ;
+; Force Use of Synchronous Clear Signals                           ; Off                  ; Off                  ;
+; Auto RAM Block Balancing                                         ; On                   ; On                   ;
+; Auto RAM to Logic Cell Conversion                                ; Off                  ; Off                  ;
+; Auto Resource Sharing                                            ; Off                  ; Off                  ;
+; Allow Any RAM Size For Recognition                               ; Off                  ; Off                  ;
+; Allow Any ROM Size For Recognition                               ; Off                  ; Off                  ;
+; Allow Any Shift Register Size For Recognition                    ; Off                  ; Off                  ;
+; Use LogicLock Constraints during Resource Balancing              ; On                   ; On                   ;
+; Ignore translate_off and synthesis_off directives                ; Off                  ; Off                  ;
+; Timing-Driven Synthesis                                          ; On                   ; On                   ;
+; Report Parameter Settings                                        ; On                   ; On                   ;
+; Report Source Assignments                                        ; On                   ; On                   ;
+; Report Connectivity Checks                                       ; On                   ; On                   ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                  ; Off                  ;
+; Synchronization Register Chain Length                            ; 2                    ; 2                    ;
+; Power Optimization During Synthesis                              ; Normal compilation   ; Normal compilation   ;
+; HDL message level                                                ; Level2               ; Level2               ;
+; Suppress Register Optimization Related Messages                  ; Off                  ; Off                  ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                 ; 5000                 ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                 ; 5000                 ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                  ; 100                  ;
+; Clock MUX Protection                                             ; On                   ; On                   ;
+; Auto Gated Clock Conversion                                      ; Off                  ; Off                  ;
+; Block Design Naming                                              ; Auto                 ; Auto                 ;
+; SDC constraint protection                                        ; Off                  ; Off                  ;
+; Synthesis Effort                                                 ; Auto                 ; Auto                 ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                   ; On                   ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                  ; Off                  ;
+; Analysis & Synthesis Message Level                               ; Medium               ; Medium               ;
+; Disable Register Merging Across Hierarchies                      ; Auto                 ; Auto                 ;
+; Resource Aware Inference For Block RAM                           ; On                   ; On                   ;
++------------------------------------------------------------------+----------------------+----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                       ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+; ../rtl/DDS_Core.v                ; yes             ; User Verilog HDL File        ; D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Core.v             ;         ;
+; ../rtl/Key_Control.v             ; yes             ; User Verilog HDL File        ; D:/Work_Place/Cursor/claude/DDS_project/rtl/Key_Control.v          ;         ;
+; ../rtl/UART_Parse.v              ; yes             ; User Verilog HDL File        ; D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v           ;         ;
+; ../rtl/DDS_Signal_Generator.v    ; yes             ; User Verilog HDL File        ; D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Signal_Generator.v ;         ;
+; ../rtl/pll_50m_to_100m.v         ; yes             ; User Verilog HDL File        ; D:/Work_Place/Cursor/claude/DDS_project/rtl/pll_50m_to_100m.v      ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_mult.tdf     ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; d:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc   ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc  ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/intelfpga/18.1/quartus/libraries/megafunctions/multcore.inc     ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/intelfpga/18.1/quartus/libraries/megafunctions/bypassff.inc     ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/intelfpga/18.1/quartus/libraries/megafunctions/altshift.inc     ;         ;
+; db/mult_aft.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_aft.tdf    ;         ;
+; db/mult_vgt.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_vgt.tdf    ;         ;
+; db/mult_pgt.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_pgt.tdf    ;         ;
+; db/mult_sgt.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_sgt.tdf    ;         ;
+; db/mult_rgt.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_rgt.tdf    ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                 ;
++---------------------------------------------+-------------------------------+
+; Resource                                    ; Usage                         ;
++---------------------------------------------+-------------------------------+
+; Estimated Total logic elements              ; 789                           ;
+;                                             ;                               ;
+; Total combinational functions               ; 685                           ;
+; Logic element usage by number of LUT inputs ;                               ;
+;     -- 4 input functions                    ; 184                           ;
+;     -- 3 input functions                    ; 350                           ;
+;     -- <=2 input functions                  ; 151                           ;
+;                                             ;                               ;
+; Logic elements by mode                      ;                               ;
+;     -- normal mode                          ; 322                           ;
+;     -- arithmetic mode                      ; 363                           ;
+;                                             ;                               ;
+; Total registers                             ; 366                           ;
+;     -- Dedicated logic registers            ; 366                           ;
+;     -- I/O registers                        ; 0                             ;
+;                                             ;                               ;
+; I/O pins                                    ; 19                            ;
+;                                             ;                               ;
+; Embedded Multiplier 9-bit elements          ; 24                            ;
+;                                             ;                               ;
+; Maximum fan-out node                        ; pll_50m_to_100m:pll_inst|c0~0 ;
+; Maximum fan-out                             ; 367                           ;
+; Total fan-out                               ; 3609                          ;
+; Average fan-out                             ; 3.24                          ;
++---------------------------------------------+-------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                           ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                     ; Entity Name          ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------+----------------------+--------------+
+; |DDS_Signal_Generator              ; 685 (33)            ; 366 (32)                  ; 0           ; 24           ; 0       ; 12        ; 19   ; 0            ; |DDS_Signal_Generator                                                                   ; DDS_Signal_Generator ; work         ;
+;    |DDS_Core:dds_core_inst|        ; 175 (175)           ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DDS_Signal_Generator|DDS_Core:dds_core_inst                                            ; DDS_Core             ; work         ;
+;    |Key_Control:key_ctrl_inst|     ; 158 (158)           ; 155 (155)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DDS_Signal_Generator|Key_Control:key_ctrl_inst                                         ; Key_Control          ; work         ;
+;    |UART_Parse:uart_parse_inst|    ; 318 (220)           ; 139 (139)                 ; 0           ; 24           ; 0       ; 12        ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst                                        ; UART_Parse           ; work         ;
+;       |lpm_mult:Mult0|             ; 28 (0)              ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult0                         ; lpm_mult             ; work         ;
+;          |mult_rgt:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult0|mult_rgt:auto_generated ; mult_rgt             ; work         ;
+;       |lpm_mult:Mult1|             ; 28 (0)              ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult1                         ; lpm_mult             ; work         ;
+;          |mult_sgt:auto_generated| ; 28 (28)             ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult1|mult_sgt:auto_generated ; mult_sgt             ; work         ;
+;       |lpm_mult:Mult2|             ; 14 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult2                         ; lpm_mult             ; work         ;
+;          |mult_vgt:auto_generated| ; 14 (14)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult2|mult_vgt:auto_generated ; mult_vgt             ; work         ;
+;       |lpm_mult:Mult3|             ; 14 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult3                         ; lpm_mult             ; work         ;
+;          |mult_pgt:auto_generated| ; 14 (14)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult3|mult_pgt:auto_generated ; mult_pgt             ; work         ;
+;       |lpm_mult:Mult4|             ; 14 (0)              ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult4                         ; lpm_mult             ; work         ;
+;          |mult_aft:auto_generated| ; 14 (14)             ; 0 (0)                     ; 0           ; 4            ; 0       ; 2         ; 0    ; 0            ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|lpm_mult:Mult4|mult_aft:auto_generated ; mult_aft             ; work         ;
+;    |pll_50m_to_100m:pll_inst|      ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DDS_Signal_Generator|pll_50m_to_100m:pll_inst                                          ; pll_50m_to_100m      ; work         ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 12          ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 24          ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 12          ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; pll_50m_to_100m:pll_inst|c0                            ;   ;
+; Number of logic cells representing combinational loops ; 1 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; Key_Control:key_ctrl_inst|fcw[0]      ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 366   ;
+; Number of registers using Synchronous Clear  ; 80    ;
+; Number of registers using Synchronous Load   ; 24    ;
+; Number of registers using Asynchronous Clear ; 334   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 229   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------+
+; Inverted Register Statistics                           ;
++----------------------------------------------+---------+
+; Inverted Register                            ; Fan out ;
++----------------------------------------------+---------+
+; Key_Control:key_ctrl_inst|fcw_reg[23]        ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[23] ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[21]        ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[21] ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[17]        ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[17] ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[16]        ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[16] ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[15]        ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[15] ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[14]        ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[14] ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[12]        ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[12] ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[10]        ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[10] ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[9]         ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[9]  ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[8]         ; 3       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[8]  ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[3]         ; 2       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[3]  ; 1       ;
+; Key_Control:key_ctrl_inst|fcw_reg[1]         ; 2       ;
+; Key_Control:key_ctrl_inst|key_db_prev[0]     ; 1       ;
+; Key_Control:key_ctrl_inst|key_db[0]          ; 5       ;
+; Key_Control:key_ctrl_inst|key_db[1]          ; 5       ;
+; Key_Control:key_ctrl_inst|key_db_prev[1]     ; 1       ;
+; Key_Control:key_ctrl_inst|key_db[2]          ; 6       ;
+; Key_Control:key_ctrl_inst|key_db_prev[2]     ; 2       ;
+; Key_Control:key_ctrl_inst|key_db[3]          ; 6       ;
+; Key_Control:key_ctrl_inst|key_db_prev[3]     ; 2       ;
+; UART_Parse:uart_parse_inst|uart_rx_sync2     ; 13      ;
+; UART_Parse:uart_parse_inst|uart_rx_sync3     ; 4       ;
+; fcw_sel[23]                                  ; 1       ;
+; fcw_sel[21]                                  ; 1       ;
+; fcw_sel[17]                                  ; 1       ;
+; fcw_sel[16]                                  ; 1       ;
+; fcw_sel[15]                                  ; 1       ;
+; fcw_sel[14]                                  ; 1       ;
+; fcw_sel[12]                                  ; 1       ;
+; fcw_sel[10]                                  ; 1       ;
+; fcw_sel[9]                                   ; 1       ;
+; fcw_sel[8]                                   ; 1       ;
+; fcw_sel[3]                                   ; 1       ;
+; fcw_sel[1]                                   ; 1       ;
+; UART_Parse:uart_parse_inst|uart_rx_sync1     ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[23]            ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[23]      ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[21]            ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[21]      ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[17]            ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[17]      ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[16]            ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[16]      ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[15]            ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[15]      ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[14]            ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[14]      ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[12]            ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[12]      ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[10]            ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[10]      ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[9]             ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[9]       ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[8]             ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[8]       ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[3]             ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[3]       ; 1       ;
+; Key_Control:key_ctrl_inst|fcw[1]             ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart[1]       ; 1       ;
+; UART_Parse:uart_parse_inst|fcw_uart_next[1]  ; 1       ;
+; Total number of inverted registers = 71      ;         ;
++----------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |DDS_Signal_Generator|Key_Control:key_ctrl_inst|cnt[3][16]     ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |DDS_Signal_Generator|Key_Control:key_ctrl_inst|cnt[2][17]     ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |DDS_Signal_Generator|Key_Control:key_ctrl_inst|cnt[1][9]      ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |DDS_Signal_Generator|Key_Control:key_ctrl_inst|cnt[0][16]     ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|cnt_baud[5]   ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|cnt_bit[1]    ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|update_cnt[2] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |DDS_Signal_Generator|UART_Parse:uart_parse_inst|cmd_cnt[1]    ;
+; 17:1               ; 19 bits   ; 209 LEs       ; 19 LEs               ; 190 LEs                ; Yes        ; |DDS_Signal_Generator|Key_Control:key_ctrl_inst|fcw_reg[30]    ;
+; 17:1               ; 12 bits   ; 132 LEs       ; 12 LEs               ; 120 LEs                ; Yes        ; |DDS_Signal_Generator|Key_Control:key_ctrl_inst|fcw_reg[8]     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Key_Control:key_ctrl_inst ;
++----------------+----------------------------------+--------------------+
+; Parameter Name ; Value                            ; Type               ;
++----------------+----------------------------------+--------------------+
+; FCW_DEFAULT    ; 00000000101000111101011100001010 ; Unsigned Binary    ;
+; FCW_STEP       ; 00000000000000011010001101101110 ; Unsigned Binary    ;
+; FCW_MIN        ; 00000000000000000010100111110001 ; Unsigned Binary    ;
++----------------+----------------------------------+--------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: UART_Parse:uart_parse_inst ;
++----------------+----------------------------------+---------------------+
+; Parameter Name ; Value                            ; Type                ;
++----------------+----------------------------------+---------------------+
+; BAUD_CNT       ; 0010100010110000                 ; Unsigned Binary     ;
+; BAUD_HALF      ; 0001010001011000                 ; Unsigned Binary     ;
+; FCW_DEFAULT    ; 00000000101000111101011100001010 ; Unsigned Binary     ;
+; UPDATE_PULSE   ; 1010                             ; Unsigned Binary     ;
++----------------+----------------------------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult4 ;
++------------------------------------------------+--------------+----------------------------+
+; Parameter Name                                 ; Value        ; Type                       ;
++------------------------------------------------+--------------+----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE             ;
+; LPM_WIDTHA                                     ; 32           ; Untyped                    ;
+; LPM_WIDTHB                                     ; 9            ; Untyped                    ;
+; LPM_WIDTHP                                     ; 41           ; Untyped                    ;
+; LPM_WIDTHR                                     ; 41           ; Untyped                    ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                    ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                    ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                    ;
+; LATENCY                                        ; 0            ; Untyped                    ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                    ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped                    ;
+; USE_EAB                                        ; OFF          ; Untyped                    ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                    ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                    ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                    ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K        ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                    ;
+; CBXI_PARAMETER                                 ; mult_aft     ; Untyped                    ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                    ;
++------------------------------------------------+--------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult2 ;
++------------------------------------------------+--------------+----------------------------+
+; Parameter Name                                 ; Value        ; Type                       ;
++------------------------------------------------+--------------+----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE             ;
+; LPM_WIDTHA                                     ; 32           ; Untyped                    ;
+; LPM_WIDTHB                                     ; 16           ; Untyped                    ;
+; LPM_WIDTHP                                     ; 48           ; Untyped                    ;
+; LPM_WIDTHR                                     ; 48           ; Untyped                    ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                    ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                    ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                    ;
+; LATENCY                                        ; 0            ; Untyped                    ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                    ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped                    ;
+; USE_EAB                                        ; OFF          ; Untyped                    ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                    ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                    ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                    ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K        ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                    ;
+; CBXI_PARAMETER                                 ; mult_vgt     ; Untyped                    ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                    ;
++------------------------------------------------+--------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult3 ;
++------------------------------------------------+--------------+----------------------------+
+; Parameter Name                                 ; Value        ; Type                       ;
++------------------------------------------------+--------------+----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE             ;
+; LPM_WIDTHA                                     ; 32           ; Untyped                    ;
+; LPM_WIDTHB                                     ; 13           ; Untyped                    ;
+; LPM_WIDTHP                                     ; 45           ; Untyped                    ;
+; LPM_WIDTHR                                     ; 45           ; Untyped                    ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                    ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                    ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                    ;
+; LATENCY                                        ; 0            ; Untyped                    ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                    ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped                    ;
+; USE_EAB                                        ; OFF          ; Untyped                    ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                    ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                    ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                    ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K        ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                    ;
+; CBXI_PARAMETER                                 ; mult_pgt     ; Untyped                    ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                    ;
++------------------------------------------------+--------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult1 ;
++------------------------------------------------+--------------+----------------------------+
+; Parameter Name                                 ; Value        ; Type                       ;
++------------------------------------------------+--------------+----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE             ;
+; LPM_WIDTHA                                     ; 32           ; Untyped                    ;
+; LPM_WIDTHB                                     ; 19           ; Untyped                    ;
+; LPM_WIDTHP                                     ; 51           ; Untyped                    ;
+; LPM_WIDTHR                                     ; 51           ; Untyped                    ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                    ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                    ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                    ;
+; LATENCY                                        ; 0            ; Untyped                    ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                    ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped                    ;
+; USE_EAB                                        ; OFF          ; Untyped                    ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                    ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                    ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                    ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K        ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                    ;
+; CBXI_PARAMETER                                 ; mult_sgt     ; Untyped                    ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                    ;
++------------------------------------------------+--------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: UART_Parse:uart_parse_inst|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+----------------------------+
+; Parameter Name                                 ; Value        ; Type                       ;
++------------------------------------------------+--------------+----------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                 ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY               ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE               ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE             ;
+; LPM_WIDTHA                                     ; 32           ; Untyped                    ;
+; LPM_WIDTHB                                     ; 23           ; Untyped                    ;
+; LPM_WIDTHP                                     ; 55           ; Untyped                    ;
+; LPM_WIDTHR                                     ; 55           ; Untyped                    ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                    ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                    ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                    ;
+; LATENCY                                        ; 0            ; Untyped                    ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                    ;
+; INPUT_B_IS_CONSTANT                            ; YES          ; Untyped                    ;
+; USE_EAB                                        ; OFF          ; Untyped                    ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                    ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                    ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                    ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K        ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                    ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                    ;
+; CBXI_PARAMETER                                 ; mult_rgt     ; Untyped                    ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                    ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                    ;
++------------------------------------------------+--------------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                    ;
++---------------------------------------+-------------------------------------------+
+; Name                                  ; Value                                     ;
++---------------------------------------+-------------------------------------------+
+; Number of entity instances            ; 5                                         ;
+; Entity Instance                       ; UART_Parse:uart_parse_inst|lpm_mult:Mult4 ;
+;     -- LPM_WIDTHA                     ; 32                                        ;
+;     -- LPM_WIDTHB                     ; 9                                         ;
+;     -- LPM_WIDTHP                     ; 41                                        ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                  ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                        ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                       ;
+;     -- USE_EAB                        ; OFF                                       ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                      ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                        ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                        ;
+; Entity Instance                       ; UART_Parse:uart_parse_inst|lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 32                                        ;
+;     -- LPM_WIDTHB                     ; 16                                        ;
+;     -- LPM_WIDTHP                     ; 48                                        ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                  ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                        ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                       ;
+;     -- USE_EAB                        ; OFF                                       ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                      ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                        ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                        ;
+; Entity Instance                       ; UART_Parse:uart_parse_inst|lpm_mult:Mult3 ;
+;     -- LPM_WIDTHA                     ; 32                                        ;
+;     -- LPM_WIDTHB                     ; 13                                        ;
+;     -- LPM_WIDTHP                     ; 45                                        ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                  ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                        ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                       ;
+;     -- USE_EAB                        ; OFF                                       ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                      ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                        ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                        ;
+; Entity Instance                       ; UART_Parse:uart_parse_inst|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 32                                        ;
+;     -- LPM_WIDTHB                     ; 19                                        ;
+;     -- LPM_WIDTHP                     ; 51                                        ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                  ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                        ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                       ;
+;     -- USE_EAB                        ; OFF                                       ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                      ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                        ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                        ;
+; Entity Instance                       ; UART_Parse:uart_parse_inst|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                                        ;
+;     -- LPM_WIDTHB                     ; 23                                        ;
+;     -- LPM_WIDTHP                     ; 55                                        ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                  ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                        ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                       ;
+;     -- USE_EAB                        ; OFF                                       ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                      ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                        ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                        ;
++---------------------------------------+-------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 19                          ;
+; cycloneiii_ff         ; 366                         ;
+;     CLR               ; 129                         ;
+;     CLR SLD           ; 8                           ;
+;     ENA               ; 32                          ;
+;     ENA CLR           ; 101                         ;
+;     ENA CLR SCLR      ; 80                          ;
+;     ENA CLR SLD       ; 16                          ;
+; cycloneiii_lcell_comb ; 686                         ;
+;     arith             ; 363                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 95                          ;
+;         3 data inputs ; 267                         ;
+;     normal            ; 323                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 44                          ;
+;         3 data inputs ; 83                          ;
+;         4 data inputs ; 184                         ;
+; cycloneiii_mac_mult   ; 12                          ;
+; cycloneiii_mac_out    ; 12                          ;
+;                       ;                             ;
+; Max LUT depth         ; 6.30                        ;
+; Average LUT depth     ; 3.20                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Wed Jun 03 18:14:46 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DDS_Signal_Generator -c DDS_Signal_Generator
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /work_place/cursor/claude/dds_project/rtl/dds_core.v
+    Info (12023): Found entity 1: DDS_Core File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Core.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /work_place/cursor/claude/dds_project/rtl/key_control.v
+    Info (12023): Found entity 1: Key_Control File: D:/Work_Place/Cursor/claude/DDS_project/rtl/Key_Control.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /work_place/cursor/claude/dds_project/rtl/uart_parse.v
+    Info (12023): Found entity 1: UART_Parse File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /work_place/cursor/claude/dds_project/rtl/dds_signal_generator.v
+    Info (12023): Found entity 1: DDS_Signal_Generator File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Signal_Generator.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /work_place/cursor/claude/dds_project/rtl/pll_50m_to_100m.v
+    Info (12023): Found entity 1: pll_50m_to_100m File: D:/Work_Place/Cursor/claude/DDS_project/rtl/pll_50m_to_100m.v Line: 6
+Info (12127): Elaborating entity "DDS_Signal_Generator" for the top level hierarchy
+Info (12128): Elaborating entity "pll_50m_to_100m" for hierarchy "pll_50m_to_100m:pll_inst" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Signal_Generator.v Line: 27
+Warning (10755): Verilog HDL warning at pll_50m_to_100m.v(23): assignments to clk_out create a combinational loop File: D:/Work_Place/Cursor/claude/DDS_project/rtl/pll_50m_to_100m.v Line: 23
+Info (12128): Elaborating entity "Key_Control" for hierarchy "Key_Control:key_ctrl_inst" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Signal_Generator.v Line: 40
+Info (10264): Verilog HDL Case Statement information at Key_Control.v(56): all case item expressions in this case statement are onehot File: D:/Work_Place/Cursor/claude/DDS_project/rtl/Key_Control.v Line: 56
+Warning (10240): Verilog HDL Always Construct warning at Key_Control.v(49): inferring latch(es) for variable "fcw_reg", which holds its previous value in one or more paths through the always construct File: D:/Work_Place/Cursor/claude/DDS_project/rtl/Key_Control.v Line: 49
+Info (10041): Inferred latch for "fcw_reg[0]" at Key_Control.v(49) File: D:/Work_Place/Cursor/claude/DDS_project/rtl/Key_Control.v Line: 49
+Info (12128): Elaborating entity "UART_Parse" for hierarchy "UART_Parse:uart_parse_inst" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Signal_Generator.v Line: 50
+Warning (10230): Verilog HDL assignment warning at UART_Parse.v(59): truncated value with size 32 to match size of target (16) File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 59
+Info (12128): Elaborating entity "DDS_Core" for hierarchy "DDS_Core:dds_core_inst" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Signal_Generator.v Line: 70
+Warning (10030): Net "sin_lut_table.data_a" at DDS_Core.v(28) has no driver or initial value, using a default initial value '0' File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Core.v Line: 28
+Warning (10030): Net "sin_lut_table.waddr_a" at DDS_Core.v(28) has no driver or initial value, using a default initial value '0' File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Core.v Line: 28
+Warning (10030): Net "sin_lut_table.we_a" at DDS_Core.v(28) has no driver or initial value, using a default initial value '0' File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Core.v Line: 28
+Info (278001): Inferred 5 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "UART_Parse:uart_parse_inst|Mult4" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 139
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "UART_Parse:uart_parse_inst|Mult2" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 137
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "UART_Parse:uart_parse_inst|Mult3" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 138
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "UART_Parse:uart_parse_inst|Mult1" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 136
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "UART_Parse:uart_parse_inst|Mult0" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 135
+Info (12130): Elaborated megafunction instantiation "UART_Parse:uart_parse_inst|lpm_mult:Mult4" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 139
+Info (12133): Instantiated megafunction "UART_Parse:uart_parse_inst|lpm_mult:Mult4" with the following parameter: File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 139
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "9"
+    Info (12134): Parameter "LPM_WIDTHP" = "41"
+    Info (12134): Parameter "LPM_WIDTHR" = "41"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_aft.tdf
+    Info (12023): Found entity 1: mult_aft File: D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_aft.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "UART_Parse:uart_parse_inst|lpm_mult:Mult2" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 137
+Info (12133): Instantiated megafunction "UART_Parse:uart_parse_inst|lpm_mult:Mult2" with the following parameter: File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 137
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "16"
+    Info (12134): Parameter "LPM_WIDTHP" = "48"
+    Info (12134): Parameter "LPM_WIDTHR" = "48"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_vgt.tdf
+    Info (12023): Found entity 1: mult_vgt File: D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_vgt.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "UART_Parse:uart_parse_inst|lpm_mult:Mult3" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 138
+Info (12133): Instantiated megafunction "UART_Parse:uart_parse_inst|lpm_mult:Mult3" with the following parameter: File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 138
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "13"
+    Info (12134): Parameter "LPM_WIDTHP" = "45"
+    Info (12134): Parameter "LPM_WIDTHR" = "45"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_pgt.tdf
+    Info (12023): Found entity 1: mult_pgt File: D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_pgt.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "UART_Parse:uart_parse_inst|lpm_mult:Mult1" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 136
+Info (12133): Instantiated megafunction "UART_Parse:uart_parse_inst|lpm_mult:Mult1" with the following parameter: File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 136
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "19"
+    Info (12134): Parameter "LPM_WIDTHP" = "51"
+    Info (12134): Parameter "LPM_WIDTHR" = "51"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_sgt.tdf
+    Info (12023): Found entity 1: mult_sgt File: D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_sgt.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "UART_Parse:uart_parse_inst|lpm_mult:Mult0" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 135
+Info (12133): Instantiated megafunction "UART_Parse:uart_parse_inst|lpm_mult:Mult0" with the following parameter: File: D:/Work_Place/Cursor/claude/DDS_project/rtl/UART_Parse.v Line: 135
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "23"
+    Info (12134): Parameter "LPM_WIDTHP" = "55"
+    Info (12134): Parameter "LPM_WIDTHR" = "55"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_rgt.tdf
+    Info (12023): Found entity 1: mult_rgt File: D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_rgt.tdf Line: 30
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "UART_Parse:uart_parse_inst|lpm_mult:Mult0|mult_rgt:auto_generated|mac_mult7" File: D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_rgt.tdf Line: 66
+        Warning (14320): Synthesized away node "UART_Parse:uart_parse_inst|lpm_mult:Mult0|mult_rgt:auto_generated|mac_out8" File: D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_rgt.tdf Line: 90
+        Warning (14320): Synthesized away node "UART_Parse:uart_parse_inst|lpm_mult:Mult1|mult_sgt:auto_generated|mac_mult7" File: D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_sgt.tdf Line: 66
+        Warning (14320): Synthesized away node "UART_Parse:uart_parse_inst|lpm_mult:Mult1|mult_sgt:auto_generated|mac_out8" File: D:/Work_Place/Cursor/claude/DDS_project/quartus/db/mult_sgt.tdf Line: 90
+Info (13014): Ignored 288 buffer(s)
+    Info (13019): Ignored 288 SOFT buffer(s)
+Info (13000): Registers with preset signals will power-up high File: D:/Work_Place/Cursor/claude/DDS_project/rtl/Key_Control.v Line: 30
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "led_sys" is stuck at VCC File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Signal_Generator.v Line: 12
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk_50mhz" File: D:/Work_Place/Cursor/claude/DDS_project/rtl/DDS_Signal_Generator.v Line: 3
+Info (21057): Implemented 833 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 790 logic cells
+    Info (21062): Implemented 24 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Peak virtual memory: 4792 megabytes
+    Info: Processing ended: Wed Jun 03 18:14:56 2026
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:04
+
+
